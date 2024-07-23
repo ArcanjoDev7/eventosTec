@@ -34,6 +34,8 @@ public class EventService {
     private AddressService addressService;
     @Autowired
     private CouponService couponService;
+
+
     public Event createEvent(EventResquestDTO data){
         String imgUrl = null;
 
@@ -99,7 +101,7 @@ public class EventService {
     }
 
     public Void deleteEvent(UUID eventId, String adminKey){
-        if(adminKey == null || !adminKey.equals(this.adminKey)){
+        if(adminKey == null || !adminKey.equals(this.deleteEvent(eventId, adminKey))){
             throw new IllegalArgumentException("Invalid admin key");
         }
 
